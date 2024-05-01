@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>My HomePage</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="cv.html">
+    <span class="fa fa-file-pdf-o"></span>
+     
+    CV
+  </a>
+</li>
+<li class="dropdown-header">Blog</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown-header">Contact me</li>
+<li class="dropdown-header">GitHub</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">My HomePage</h1>
+
+</div>
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The topic of bank customer churn prediction has gained some
+significance in the resent years in the banking sector (Huang et al.,
+2012). This has been driven by the need by the financial institutions
+such as the banks to keep and grow their competitive edge in an ever
+evolving and dynamic landscape (Lalwani et al., 2022). The emergence of
+digital banking has placed more pressure on the traditional banks to
+retain their customer base and prevent them from moving to the
+competitors (Vafeiadis et al., 2015). This pressure highlights the need
+for effective churn prediction mechanisms.</p>
+<p>There has been an increased banking option due to the technological
+advancements which are available to the customer which is one of the
+factors of increased customer churn (Verbeke et al., 2014). Customer
+churn is when a customer or client discontinues their association and
+relationship with the institution. These results in losses in revenue,
+and market share, and damage to the institutional reputation (Saran
+Kumar et al., 2016). Given the risk associated with customer churn in
+the banking sector, understanding the drivers of customer churn is
+important for developing strategies that can be used to effectively
+predict customer churn and mitigate it.</p>
+<p>The aim of this study is to explore the relationship between bank
+customer churn and other factors such as age, gender, and income among
+others, and also to explore the predictive modeling of bank customer
+churn. By using data analytics techniques such as visualization and
+modeling, this study proposes to uncover the underlying patterns and
+insights of factors affecting customer churn. This study will
+investigate the impact of demographic factors, behavioral factors, and
+transactional factors on customer churn.</p>
+<p>Background of the data</p>
+<p>This study used the bank customer churn dataset. The customer churn
+data used in this study contains customer information that is relevant
+in predicting customer churn and exploring factors associated with
+customer churn.</p>
+<p><strong>Research question</strong></p>
+<p>What is the impact of demographic factors, behavioral factors and
+transactional factors on customer churn?</p>
+<p>Is there an association between the customer satisfaction level and
+customer churn rate?</p>
+<p>How does gender of the customer influence churn behavior in the
+banking industry?</p>
+</div>
+<div id="methods" class="section level1">
+<h1>Methods</h1>
+<p>Data collection</p>
+<p>The customer churn data was collected from Kaggle website. Kaggle is
+an open source data website that is highly regarded. The data can be
+collected using the link: <a
+href="https://www.kaggle.com/datasets/radheshyamkollipara/bank-customer-churn"
+class="uri">https://www.kaggle.com/datasets/radheshyamkollipara/bank-customer-churn</a>.
+This dataset was collected using a survey and recoded in a csv file. The
+data was collected around Europe. This dataset was collected in the year
+2023 from different countries around Europe. The dataset contains the
+demographic, transactional behavior, behavioral factors and churn status
+of a customer. The dataset 18 variables and 10,000 observations. The
+gender, geography, card type and surname were the only categorical
+variables in the data.</p>
+<p>** Data importation**</p>
+<pre class="r"><code>library(ggplot2)
+library(knitr)
+library(psych)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;psych&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:ggplot2&#39;:
+## 
+##     %+%, alpha</code></pre>
+<pre class="r"><code>library(kableExtra)</code></pre>
+<pre><code>## Warning: package &#39;kableExtra&#39; was built under R version 4.3.3</code></pre>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:kableExtra&#39;:
+## 
+##     group_rows</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(scales)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;scales&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:psych&#39;:
+## 
+##     alpha, rescale</code></pre>
+<div id="data-cleaning-and-wrangling" class="section level2">
+<h2>DATA CLEANING AND WRANGLING</h2>
+<p><strong>Handling missing values</strong></p>
+<pre><code>## [1] 8</code></pre>
+<p>This study checked for missing values in the data. This study checked
+for missing values. There were 8 missing values in the data. The missing
+values were deleted from the data since the original dataset was huge
+enough and deletion of the few rows with missing values would not have
+affected the size of the data significantly.</p>
+<p><strong>Handling duplicates</strong></p>
+<pre><code>## [1] 0</code></pre>
+<p>This study checked for duplications. There was no duplicated rows in
+the data. Duplicates would have skewed the data giving inaccurate
+results.</p>
+<p><strong>Handling outliers</strong> <em>Customer’s Age
+distribution</em>
+<img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Figure 1</p>
+<p>Based on the results from figure 1 above, there were outliers in the
+age of the customers who were served by the bank. This is shown by the
+data points that are outside the whisker plot. This study did not
+eliminate customers age that were outliers as they might provide
+important insight into how age factor affects customer churn.</p>
+<p><em>Customer’s Estimated Salary distribution</em></p>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+Figure 2</p>
+<p>There were no outliers in the Estimated Salary of the customers. This
+is demonstrated by the absence of data points outside the lower and
+upper whisker plots.</p>
+<p><em>Customer’s Balance distribution</em></p>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Figure 3</p>
+<p>Based on the results from figure 3 above, there were no outliers in
+the bank balance of the customers. The results points out to the
+presence of heavy skewness as shown by the median point being drifting
+more to the right. This study transformed this variable to deal with
+skewness.</p>
+<p><strong>Data Transformation</strong></p>
+<p>Given that the balance variable was skewed, this study used square
+root transformation to deal with normality issues in the bank balance
+variable.</p>
+<p><strong>Data type conversion</strong></p>
+<p>To conduct the classification test, the dependent variable should be
+in binary form. This study changed the data type of the variable
+‘exited’ that represented whether a customer had exited or not from
+numeric to a factor.</p>
+<p><strong>Subset the data</strong></p>
+<p>The variables RowNumber, CustomerId, Surname, and Balance variables
+were eliminated form the data since they did not contain any significant
+information that would be used for modelling. They were used as customer
+identifier. The balance variable had been transformed so there was no
+need to have it in the data and the other variables were
+identifiers.</p>
+</div>
+<div id="data-analysis-methods" class="section level2">
+<h2>Data Analysis methods</h2>
+<p>This study used R studio for data analysis process from importation,
+visualization and modelling. This used used frequency tables were used
+to show the distribution of numeric variables like gender in the data
+while the visualization like a boxplot were used to show the
+distribution of numeric variables and also to detect outliers in the
+data. A grouped bar chart was used to draw insights into the nature of
+association between numeric variables and bank churn. This study used a
+logistic regression model to predict whether a customer would exit using
+the bank or not. These were the most appropriate statistical techniques
+since the dependent variable exited was binary (demanding for a
+classification model to be used for predictions)1=YES, 0=NO) and there
+were predictors like age.</p>
+</div>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<p><strong>Distribution of customer’s Gender</strong></p>
+<table class="table" style>
+<caption>
+Distribution of customer’s Gender
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Gender
+</th>
+<th style="text-align:right;">
+Frequency
+</th>
+<th style="text-align:left;">
+Percentage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+4538
+</td>
+<td style="text-align:left;">
+45.42%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+5454
+</td>
+<td style="text-align:left;">
+54.58%
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table 1</p>
+<p>Based on the results from table 1 above, 54.58% (n=5454) who were the
+majority were male while 45.42% (n=4538) were female.</p>
+<p><strong>Distribution of customer’s Card type</strong></p>
+<table class="table" style>
+<caption>
+Distribution of customer’s Card type
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Card.Type
+</th>
+<th style="text-align:right;">
+Frequency
+</th>
+<th style="text-align:left;">
+Percentage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+DIAMOND
+</td>
+<td style="text-align:right;">
+2505
+</td>
+<td style="text-align:left;">
+25.07%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GOLD
+</td>
+<td style="text-align:right;">
+2498
+</td>
+<td style="text-align:left;">
+25.00%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLATINUM
+</td>
+<td style="text-align:right;">
+2493
+</td>
+<td style="text-align:left;">
+24.95%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SILVER
+</td>
+<td style="text-align:right;">
+2496
+</td>
+<td style="text-align:left;">
+24.98%
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table 2</p>
+<p>Based on the results from table 2 above, 25.07% (n=2505) of the
+customers were using a Diamond card, 25.00% (n=2498) were using a Gold
+card, 24.95% (n=2493) were using a Platinum card while 24.98% (n=2496)
+were using a Silver card. This shows that there was almost an equal
+distribution of the type of cards used by the customers.</p>
+<p>** Mean age by churn group **</p>
+<pre class="r"><code>plotdata &lt;- data %&gt;%
+group_by(Churn, Card.Type) %&gt;%
+summarize(mean_age = mean(Age, na.rm = TRUE))</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Churn&#39;. You
+## can override using the `.groups` argument.</code></pre>
+<pre class="r"><code>ggplot(plotdata,
+        aes(y = Churn, x = mean_age)) +
+  geom_bar(stat = &quot;identity&quot;, fill = &quot;cornflowerblue&quot;) +
+  geom_text(aes(label = round(mean_age,2)), vjust = -0.10)+
+  labs(title = &quot;Mean age by churn group&quot;, x=&quot;Churn group&quot;, y=&quot;Mean Age&quot;)+facet_wrap(~Card.Type)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Figure 5</p>
+<p>Based on the results from figure 5 above, the average age of those
+customers who left was higher among different card users. This indicates
+that the card that a client was using did not have an effect on the
+impact of age on exiting using the bank.</p>
+<div id="mean-age-by-churn-group" class="section level2">
+<h2>Mean age by churn group</h2>
+<pre class="r"><code>plotdata &lt;- data %&gt;%
+group_by(Churn, Gender) %&gt;%
+summarize(mean_creditscore = mean(CreditScore, na.rm = TRUE))</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Churn&#39;. You
+## can override using the `.groups` argument.</code></pre>
+<pre class="r"><code>ggplot(plotdata,
+        aes(x = Churn, y = mean_creditscore)) +
+  geom_bar(stat = &quot;identity&quot;, fill = &quot;cornflowerblue&quot;) +
+  geom_text(aes(label = round(mean_creditscore,2)), vjust = -0.10)+
+  labs(title = &quot;Mean age by churn group&quot;, x=&quot;Churn group&quot;, y=&quot;Mean Age&quot;)+facet_wrap(~Gender)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Figure 6</p>
+<p>The results from figure 6 shows that the mean age of those who exited
+using the bank was higher than those who stayed for both male and
+female. Gender did not have an impact on the relationship between age
+and attrition.</p>
+<p><strong>Summary statistics</strong></p>
+<pre class="r"><code>df&lt;- data %&gt;% select(CreditScore, Age, Tenure, EstimatedSalary, Satisfaction.Score)
+a&lt;-describe(df)
+kable(a, caption = &quot;Summary statistics&quot;) %&gt;%
+  kable_styling(full_width = TRUE, position = &quot;left&quot;)</code></pre>
+<table class="table" style>
+<caption>
+Summary statistics
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+vars
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+median
+</th>
+<th style="text-align:right;">
+trimmed
+</th>
+<th style="text-align:right;">
+mad
+</th>
+<th style="text-align:right;">
+min
+</th>
+<th style="text-align:right;">
+max
+</th>
+<th style="text-align:right;">
+range
+</th>
+<th style="text-align:right;">
+skew
+</th>
+<th style="text-align:right;">
+kurtosis
+</th>
+<th style="text-align:right;">
+se
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+CreditScore
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9992
+</td>
+<td style="text-align:right;">
+6.505027e+02
+</td>
+<td style="text-align:right;">
+96.663720
+</td>
+<td style="text-align:right;">
+652.0
+</td>
+<td style="text-align:right;">
+6.509794e+02
+</td>
+<td style="text-align:right;">
+99.3342
+</td>
+<td style="text-align:right;">
+350.00
+</td>
+<td style="text-align:right;">
+850.0
+</td>
+<td style="text-align:right;">
+500.0
+</td>
+<td style="text-align:right;">
+-0.0709812
+</td>
+<td style="text-align:right;">
+-0.4266919
+</td>
+<td style="text-align:right;">
+0.9670241
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+9992
+</td>
+<td style="text-align:right;">
+3.891853e+01
+</td>
+<td style="text-align:right;">
+10.484412
+</td>
+<td style="text-align:right;">
+37.0
+</td>
+<td style="text-align:right;">
+3.791306e+01
+</td>
+<td style="text-align:right;">
+8.8956
+</td>
+<td style="text-align:right;">
+18.00
+</td>
+<td style="text-align:right;">
+92.0
+</td>
+<td style="text-align:right;">
+74.0
+</td>
+<td style="text-align:right;">
+1.0093026
+</td>
+<td style="text-align:right;">
+1.3879125
+</td>
+<td style="text-align:right;">
+0.1048861
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tenure
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+9992
+</td>
+<td style="text-align:right;">
+5.012610e+00
+</td>
+<td style="text-align:right;">
+2.892018
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+5.006005e+00
+</td>
+<td style="text-align:right;">
+2.9652
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+10.0
+</td>
+<td style="text-align:right;">
+10.0
+</td>
+<td style="text-align:right;">
+0.0113485
+</td>
+<td style="text-align:right;">
+-1.1653975
+</td>
+<td style="text-align:right;">
+0.0289318
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EstimatedSalary
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+9992
+</td>
+<td style="text-align:right;">
+1.000820e+05
+</td>
+<td style="text-align:right;">
+57511.790602
+</td>
+<td style="text-align:right;">
+100193.9
+</td>
+<td style="text-align:right;">
+1.001046e+05
+</td>
+<td style="text-align:right;">
+72941.1772
+</td>
+<td style="text-align:right;">
+11.58
+</td>
+<td style="text-align:right;">
+199992.5
+</td>
+<td style="text-align:right;">
+199980.9
+</td>
+<td style="text-align:right;">
+0.0020296
+</td>
+<td style="text-align:right;">
+-1.1816835
+</td>
+<td style="text-align:right;">
+575.3480913
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Satisfaction.Score
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+9992
+</td>
+<td style="text-align:right;">
+3.014311e+00
+</td>
+<td style="text-align:right;">
+1.406156
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+3.017888e+00
+</td>
+<td style="text-align:right;">
+1.4826
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+-0.0096178
+</td>
+<td style="text-align:right;">
+-1.2857233
+</td>
+<td style="text-align:right;">
+0.0140672
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table 4</p>
+<p>Based on the results from the table above, the average age of the
+customers was 38.92 years with the oldest being 92 years and the
+youngest being 18 years. The average credit score of the bank’s
+customers was 650.50 with some customer having a high score of 850 and
+some customers having a low score of 350. The average estimated salary
+was 100,082 with the highest earner being paid 199,992.5 and the lowest
+earner getting 11.58. The average period that customers had been
+associating with the bank was 5.01 with some customers having a
+relationship with the bank for the past 10 years. There were also some
+new customers who had been with the bank for only 0 years. The average
+satisfaction level of the customers was 3.01. This indicates that the
+customers were moderately satisfied with the product and services of the
+bank.</p>
+<p><strong>Relationship between age and churn</strong></p>
+<pre class="r"><code>plotdata &lt;- data %&gt;%
+group_by(Exited) %&gt;%
+summarize(mean_age = mean(Age))
+
+ggplot(plotdata,
+        aes(x = Exited, y = mean_age)) +
+  geom_bar(stat = &quot;identity&quot;, fill = &quot;cornflowerblue&quot;) +
+  geom_text(aes(label = round(mean_age,2)), vjust = -0.25)+
+  labs(title = &quot;Mean age by churn group&quot;, x=&quot;Churn group&quot;, y=&quot;Mean Age&quot;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Figure 4</p>
+<p>Based on the results from figure 4 above, the average age of
+customers who stopped associating with the bank was 44.84 compared to
+the average age of 37.4 of those who were still associating with the
+bank.</p>
+<p><strong>Customer satisfaction level and customer churn
+rate</strong></p>
+<pre class="r"><code>plotdata &lt;- data %&gt;%
+group_by(Exited) %&gt;%
+summarize(mean_sat = mean(Satisfaction.Score))
+
+ggplot(plotdata,
+        aes(x = Exited, y = mean_sat)) +
+  geom_bar(stat = &quot;identity&quot;, fill = &quot;cornflowerblue&quot;) +
+  geom_text(aes(label = round(mean_sat,2)), vjust = -0.25)+
+  labs(title = &quot;Mean Customer satisfaction level by churn group&quot;, x=&quot;Churn group&quot;, y=&quot;Mean Customer satisfaction level&quot;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Figure 5</p>
+<p>Based on the results from figure 5 above, the average level of
+satisfaction was higher among customers who had decided to stay (M=3.02)
+compared to customers who had left (M=3). We conducted a two sample t
+test to determine if this mean difference was significant or not.</p>
+<p><strong>Gender and customer churn</strong></p>
+<pre class="r"><code>ggplot(data,
+aes(fill = Exited,
+x = Gender)) +
+geom_bar(position = &quot;stack&quot;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>Figure 6</p>
+<p>Based on the results from figure 6 above, the likelihood of female
+customers were more likely to continue their relationship with a bank
+compared to male customers. We will conduct a Chi-square test to
+determine if the association was significant or not.</p>
+<p>** Age vs Balance **</p>
+<pre class="r"><code>scatter_plot &lt;- ggplot(data, aes(x = Age, y = data$Balance, color = data$Churn)) +
+                geom_point(size = 3, alpha = 0.8) +
+                labs(title = &quot;Age vs Balance&quot;, x = &quot;Age&quot;, y = &quot;Balance&quot;, color = &quot;Exited&quot;) +
+                theme_minimal() +
+                theme(legend.position = &quot;right&quot;) +
+                scale_color_manual(values = c(&quot;blue&quot;, &quot;red&quot;))
+scatter_plot</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>Figure 4</p>
+<p>Based on the results above, a majority of the customers who exited
+using the banks were between 40 and 60 years and had a bank balance of
+between 50,000 and 175,000. The graph also shows that young people were
+less likely to exit using the bank and an increase in age was associated
+with an increase in attrition. An increase in bank balance was
+associated with a decrease in the bank customer attrition.</p>
+</div>
+<div id="hypothesis-testing" class="section level2">
+<h2>Hypothesis testing</h2>
+<p><strong>Customer satisfaction level and customer churn
+rate</strong></p>
+<pre class="r"><code>t.test(Satisfaction.Score~Exited, data = data)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Satisfaction.Score by Exited
+## t = 0.60542, df = 3176, p-value = 0.5449
+## alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+## 95 percent confidence interval:
+##  -0.04714581  0.08926656
+## sample estimates:
+## mean in group 0 mean in group 1 
+##        3.018607        2.997547</code></pre>
+<p>We conducted a two-sample t-test to determine whether there was a
+significant difference in the average satisfaction score between bank
+customers who had exited and those who had stayed. The results of the
+t-test indicated a non significant difference between customers who
+stayed (M = 3.01) and customers who left (M = 3.0) in average
+satisfaction scores; t (3176) = 0.61, p &gt; 0.05. These findings from
+this study suggests that there is no association between the customer
+satisfaction level and customer churn rate.</p>
+<p><strong>Gender of the customer and churn behavior</strong></p>
+<pre class="r"><code>chisq.test(data$Gender, data$Exited)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  data$Gender and data$Exited
+## X-squared = 112.72, df = 1, p-value &lt; 2.2e-16</code></pre>
+<p>A chi-square test was used to check whether there was a significant
+association between gender and customer churn. Gender and churn
+variables were categorized into two groups. The contingency table
+analysis showed a significant association between the gender and
+customer churn, X**2 (1, N=9992) = 112.72, p &lt; 0.05. The association
+indicates that the customer’s likelihood to leave or stay with the bank
+was dependent on their gender.</p>
+</div>
+<div id="modelling" class="section level2">
+<h2>Modelling</h2>
+<pre class="r"><code>model&lt;-glm(Exited~., data = data, family = binomial(link=&quot;logit&quot;))</code></pre>
+<pre><code>## Warning: glm.fit: algorithm did not converge</code></pre>
+<pre class="r"><code>summary(model)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = Exited ~ ., family = binomial(link = &quot;logit&quot;), 
+##     data = data)
+## 
+## Coefficients:
+##                      Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)        -2.657e+01  3.578e+05   0.000        1
+## CreditScore        -3.993e-16  3.690e+01   0.000        1
+## GeographyFrance     2.511e-12  3.563e+05   0.000        1
+## GeographyGermany   -1.246e-11  3.564e+05   0.000        1
+## GeographySpain      4.267e-12  3.564e+05   0.000        1
+## GenderMale         -6.708e-13  7.207e+03   0.000        1
+## Age                 1.701e-13  3.582e+02   0.000        1
+## Tenure              4.678e-13  1.234e+03   0.000        1
+## NumOfProducts       4.415e-11  6.553e+03   0.000        1
+## HasCrCard          -1.021e-12  7.823e+03   0.000        1
+## IsActiveMember     -1.602e-12  7.296e+03   0.000        1
+## EstimatedSalary     1.903e-18  6.200e-02   0.000        1
+## Complain           -9.555e-12  9.533e+04   0.000        1
+## Satisfaction.Score  9.126e-13  2.535e+03   0.000        1
+## Card.TypeGOLD       3.156e-12  1.008e+04   0.000        1
+## Card.TypePLATINUM   3.252e-12  1.008e+04   0.000        1
+## Card.TypeSILVER     2.283e-12  1.008e+04   0.000        1
+## Point.Earned        4.054e-15  1.578e+01   0.000        1
+## Balance1            9.176e-14  2.499e+01   0.000        1
+## ChurnYes            5.313e+01  9.550e+04   0.001        1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 1.0109e+04  on 9991  degrees of freedom
+## Residual deviance: 5.7969e-08  on 9972  degrees of freedom
+## AIC: 40
+## 
+## Number of Fisher Scoring iterations: 25</code></pre>
+<p>Based on the results from the model above, age, whether a customer is
+an active bank member and whether they had complained were the only
+factors that had a significant impact on the customer attrition. The
+credit score, place of residence, gender, tenure, card type and salary
+did not have a significant impact on a customer staying or leaving when
+controlling for other factors. The customers who had complained were
+more likely to leave and also in active members were more likely to
+leave the bank.</p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>The aim of this study is to explore the relationship between bank
+customer churn and other factors and also to explore the predictive
+modeling of bank customer churn. The results from the two sample
+independent t-tests showed that there was no meaningful association
+between the customer satisfaction rate and them exiting or staying.</p>
+<p>However, the results from the Chi-square test showed that gender had
+a significant impact on customer retention by the bank. Female customers
+were more likely to stay with the bank than male customers. These
+results changed when we accounted for the other attributes of the
+customer other than just their gender.</p>
+<p>Furthermore, the results from the logit model revealed that after
+accounting for demographic factors, behavioral factors, and
+transactional factors of the customer, only age, complaints, and active
+membership accounted for some variation in the likelihood of a customer
+staying or leaving. Customers who had complained about the bank’s
+services were more likely to leave. Similarly, customers who were less
+active were also at a higher risk of discontinuing their association
+with the bank.</p>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
+<p>Huang, B., Kechadi, M. T., &amp; Buckley, B. (2012). Customer churn
+prediction in telecommunications. Expert Systems with Applications,
+39(1), 1414-1425.</p>
+<p>Lalwani, P., Mishra, M. K., Chadha, J. S., &amp; Sethi, P. (2022).
+Customer churn prediction system: a machine learning approach.
+Computing, 104(2), 271-294.</p>
+<p>Vafeiadis, T., Diamantaras, K. I., Sarigiannidis, G., &amp;
+Chatzisavvas, K. C. (2015). A comparison of machine learning techniques
+for customer churn prediction. Simulation Modelling Practice and Theory,
+55, 1-9.</p>
+<p>Saran Kumar, A., &amp; Chandrakala, D. (2016). A survey on customer
+churn prediction using machine learning techniques. International
+Journal of Computer Applications, 975, 8887.</p>
+<p>Verbeke, W., Martens, D., &amp; Baesens, B. (2014). Social network
+analysis for customer churn prediction. Applied Soft Computing, 14,
+431-446.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

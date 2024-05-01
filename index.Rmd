@@ -1,0 +1,353 @@
+---
+title: "My HomePage"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# Introduction
+
+The topic of bank customer churn prediction has gained some significance in the resent years in the banking sector (Huang et al., 2012). This has been driven by the need by the financial institutions such as the banks to keep and grow their competitive edge in an ever evolving and dynamic landscape (Lalwani et al., 2022). The emergence of digital banking has placed more pressure on the traditional banks to retain their customer base and prevent them from moving to the competitors (Vafeiadis et al., 2015). This pressure highlights the need for effective churn prediction mechanisms.  
+
+There has been an increased banking option due to the technological advancements which are available to the customer which is one of the factors of increased customer churn (Verbeke et al., 2014). Customer churn is when a customer or client discontinues their association and relationship with the institution. These results in losses in revenue, and market share, and damage to the institutional reputation (Saran Kumar et al., 2016). Given the risk associated with customer churn in the banking sector, understanding the drivers of customer churn is important for developing strategies that can be used to effectively predict customer churn and mitigate it. 
+
+The aim of this study is to explore the relationship between bank customer churn and other factors such as age, gender, and income among others, and also to explore the predictive modeling of bank customer churn. By using data analytics techniques such as visualization and modeling, this study proposes to uncover the underlying patterns and insights of factors affecting customer churn. This study will investigate the impact of demographic factors, behavioral factors, and transactional factors on customer churn.
+
+Background of the data
+
+This study used the bank customer churn dataset. The customer churn data used in this study contains customer information that is relevant in predicting customer churn and exploring factors associated with customer churn.
+
+
+**Research question**
+
+What is the impact of demographic factors, behavioral factors and transactional factors on customer churn?
+
+Is there an association between the customer satisfaction level and customer churn rate?
+
+How does gender of the customer influence churn behavior in the banking industry?
+
+# Methods
+
+Data collection
+
+The customer churn data was collected from Kaggle website. Kaggle is an open source data website that is highly regarded. The data can be collected using the link: https://www.kaggle.com/datasets/radheshyamkollipara/bank-customer-churn. This dataset was collected using a survey and recoded in a csv file. The data was collected around Europe. This dataset was collected in the year 2023 from different countries around Europe. The dataset contains the demographic, transactional behavior, behavioral factors and churn status of a customer. The dataset 18 variables and 10,000 observations. The gender, geography, card type and surname were the only categorical variables in the data.
+
+** Data importation**
+
+```{r}
+library(ggplot2)
+library(knitr)
+library(psych)
+library(kableExtra)
+library(dplyr)
+library(scales)
+```
+
+
+
+```{r, echo = FALSE}
+data<-read.csv("C:\\Users\\Administrator\\Downloads\\Customer-Churn-Records1.csv")
+```
+
+
+## DATA CLEANING AND WRANGLING
+
+**Handling missing values**
+
+```{r, echo = FALSE}
+# Checking for presence of missin values
+sum(is.na(data))
+
+# Eliminating missing values
+data<-na.omit(data)
+```
+
+This study checked for missing values in the data. This study checked for missing values. There were 8 missing values in the data. The missing values were deleted from the data since the original dataset was huge enough and deletion of the few rows with missing values would not have affected the size of the data significantly.
+
+**Handling duplicates**
+
+```{r, echo = FALSE}
+sum(duplicated(data))
+```
+
+This study checked for duplications. There was no duplicated rows in the data. Duplicates would have skewed the data giving inaccurate results.
+
+
+**Handling outliers**
+*Customer's Age distribution*
+```{r, echo = FALSE}
+ggplot(data,
+aes(y = Age)) +
+geom_boxplot() +
+labs(title = "Customer's Age distribution")
+```
+
+Figure 1
+
+Based on the results from figure 1 above, there were outliers in the age of the customers who were served by the bank. This is shown by the data points that are outside the whisker plot. This study did not eliminate customers age that were outliers as they might provide important insight into how age factor affects customer churn.
+
+*Customer's Estimated Salary distribution*
+
+```{r, echo = FALSE}
+ggplot(data,
+aes(y = EstimatedSalary)) +
+geom_boxplot() +
+labs(title = "Customer's Estimated Salary distribution")
+```
+Figure 2
+
+There were no outliers in the Estimated Salary of the customers. This is demonstrated by the absence of data points outside the lower and upper whisker plots.
+
+*Customer's Balance distribution*
+
+```{r, echo = FALSE}
+ggplot(data,
+aes(y = Balance)) +
+geom_boxplot() +
+labs(title = "Customer's Balance distribution")
+```
+
+Figure 3
+
+Based on the results from figure 3 above, there were no outliers in the bank balance of the customers. The results points out to the presence of heavy skewness as shown by the median point being drifting more to the right. This study transformed this variable to deal with skewness.
+
+**Data Transformation**
+
+Given that the balance variable was skewed, this study used square root transformation to deal with normality issues in the bank balance variable.
+
+```{r, echo = FALSE}
+data$Balance1<-sqrt(data$Balance)
+```
+
+**Data type conversion**
+
+To conduct the classification test, the dependent variable should be in binary form. This study changed the data type of the variable 'exited' that represented whether a customer had exited or not from numeric to a factor.
+
+```{r, echo = FALSE}
+data$Exited<-as.factor(data$Exited)
+data$Churn[data$Exited==1]="Yes"
+data$Churn[data$Exited==0]="No"
+```
+
+**Subset the data**
+
+The variables RowNumber, CustomerId, Surname, and Balance variables were eliminated form the data since they did not contain any significant information that would be used for modelling. They were used as customer identifier. The balance variable had been transformed so there was no need to have it in the data and the other variables were identifiers.
+
+
+```{r, echo = FALSE}
+data <- data %>% select(-RowNumber, -CustomerId, -Surname, -Balance)
+```
+
+
+## Data Analysis methods
+
+This study used R studio for data analysis process from importation, visualization and modelling. This used used frequency tables were used to show the distribution of numeric variables like gender in the data while the visualization like a boxplot were used to show the distribution of numeric variables and also to detect outliers in the data. A grouped bar chart was used to draw insights into the nature of association between numeric variables and bank churn. 
+This study used a logistic regression model to predict whether a customer would exit using the bank or not. These were the most appropriate statistical techniques since the dependent variable exited was binary (demanding for a classification model to be used for predictions)1=YES, 0=NO) and there were predictors like age. 
+
+# Results
+
+**Distribution of customer's Gender**
+
+```{r, echo = FALSE}
+gender_summary <- data %>%
+  group_by(Gender) %>%
+  summarise(Frequency = n()) %>%
+  mutate(Percentage = sprintf("%.2f%%", Frequency / sum(Frequency) * 100))
+
+kable(gender_summary, caption = "Distribution of customer's Gender") %>%
+  kable_styling(full_width = TRUE, position = "left")
+```
+
+Table 1
+
+Based on the results from table 1 above, 54.58% (n=5454) who were the majority were male while 45.42% (n=4538) were female.
+
+**Distribution of customer's Card type**
+
+```{r, echo = FALSE}
+card_summary <- data %>%
+  group_by(Card.Type) %>%
+  summarise(Frequency = n()) %>%
+  mutate(Percentage = sprintf("%.2f%%", Frequency / sum(Frequency) * 100))
+
+kable(card_summary, caption = "Distribution of customer's Card type") %>%
+  kable_styling(full_width = TRUE, position = "left")
+```
+
+Table 2
+
+Based on the results from table 2 above, 25.07% (n=2505) of the customers were using a Diamond card, 25.00% (n=2498) were using a Gold card, 24.95% (n=2493) were using a Platinum card while 24.98% (n=2496) were using a Silver card. This shows that there was almost an equal distribution of the type of cards used by the customers.
+
+
+** Mean age by churn group **
+
+```{r}
+plotdata <- data %>%
+group_by(Churn, Card.Type) %>%
+summarize(mean_age = mean(Age, na.rm = TRUE))
+
+ggplot(plotdata,
+        aes(y = Churn, x = mean_age)) +
+  geom_bar(stat = "identity", fill = "cornflowerblue") +
+  geom_text(aes(label = round(mean_age,2)), vjust = -0.10)+
+  labs(title = "Mean age by churn group", x="Churn group", y="Mean Age")+facet_wrap(~Card.Type)
+```
+
+Figure 5
+
+Based on the results from figure 5 above, the average age of those customers who left was higher among different card users. This indicates that the card that a client was using did not have an effect on the impact of age on exiting using the bank. 
+
+
+## Mean age by churn group
+
+```{r}
+plotdata <- data %>%
+group_by(Churn, Gender) %>%
+summarize(mean_creditscore = mean(CreditScore, na.rm = TRUE))
+
+ggplot(plotdata,
+        aes(x = Churn, y = mean_creditscore)) +
+  geom_bar(stat = "identity", fill = "cornflowerblue") +
+  geom_text(aes(label = round(mean_creditscore,2)), vjust = -0.10)+
+  labs(title = "Mean age by churn group", x="Churn group", y="Mean Age")+facet_wrap(~Gender)
+```
+
+Figure 6
+
+The results from figure 6 shows that the mean age of those who exited using the bank was higher than those who stayed for both male and female. Gender did not have an impact on the relationship between age and attrition. 
+
+**Summary statistics**
+
+```{r}
+df<- data %>% select(CreditScore, Age, Tenure, EstimatedSalary, Satisfaction.Score)
+a<-describe(df)
+kable(a, caption = "Summary statistics") %>%
+  kable_styling(full_width = TRUE, position = "left")
+```
+
+Table 4
+
+Based on the results from the table above, the average age of the customers was 38.92 years with the oldest being 92 years and the youngest being 18 years. The average credit score of the bank's customers was 650.50 with some customer having a high score of 850 and some customers having a low score of 350. The average estimated salary was 100,082 with the highest earner being paid 199,992.5 and the lowest earner getting 11.58. The average period that customers had been associating with the bank was 5.01 with some customers having a relationship with the bank for the past 10 years. There were also some new customers who had been with the bank for only 0 years. The average satisfaction level of the customers was 3.01. This indicates that the customers were moderately satisfied with the product and services of the bank.
+
+
+**Relationship between age and churn**
+
+```{r}
+plotdata <- data %>%
+group_by(Exited) %>%
+summarize(mean_age = mean(Age))
+
+ggplot(plotdata,
+        aes(x = Exited, y = mean_age)) +
+  geom_bar(stat = "identity", fill = "cornflowerblue") +
+  geom_text(aes(label = round(mean_age,2)), vjust = -0.25)+
+  labs(title = "Mean age by churn group", x="Churn group", y="Mean Age")
+```
+
+Figure 4
+
+Based on the results from figure 4 above, the average age of customers who stopped associating with the bank was 44.84 compared to the average age of 37.4 of those who were still associating with the bank.
+
+**Customer satisfaction level and customer churn rate**
+
+```{r}
+plotdata <- data %>%
+group_by(Exited) %>%
+summarize(mean_sat = mean(Satisfaction.Score))
+
+ggplot(plotdata,
+        aes(x = Exited, y = mean_sat)) +
+  geom_bar(stat = "identity", fill = "cornflowerblue") +
+  geom_text(aes(label = round(mean_sat,2)), vjust = -0.25)+
+  labs(title = "Mean Customer satisfaction level by churn group", x="Churn group", y="Mean Customer satisfaction level")
+```
+
+Figure 5
+
+Based on the results from figure 5 above, the average level of satisfaction was higher among customers who had decided to stay (M=3.02) compared to customers who had left (M=3). We conducted a two sample t test to determine if this mean difference was significant or not.
+
+
+**Gender and customer churn**
+
+```{r}
+ggplot(data,
+aes(fill = Exited,
+x = Gender)) +
+geom_bar(position = "stack")
+```
+
+
+Figure 6
+
+Based on the results from figure 6 above, the likelihood of female customers were more likely to continue their relationship with a bank compared to male customers. We will conduct a Chi-square test to determine if the association was significant or not.
+
+
+** Age vs Balance **
+
+```{r}
+scatter_plot <- ggplot(data, aes(x = Age, y = data$Balance, color = data$Churn)) +
+                geom_point(size = 3, alpha = 0.8) +
+                labs(title = "Age vs Balance", x = "Age", y = "Balance", color = "Exited") +
+                theme_minimal() +
+                theme(legend.position = "right") +
+                scale_color_manual(values = c("blue", "red"))
+scatter_plot
+```
+
+Figure 4
+
+Based on the results above, a majority of the customers who exited using the banks were between 40 and 60 years and had a bank balance of between 50,000 and 175,000. The graph also shows that young people were less likely to exit using the bank and an increase in age was associated with an increase in attrition. An increase in bank balance was associated with a decrease in the bank customer attrition.
+
+
+## Hypothesis testing
+
+**Customer satisfaction level and customer churn rate**
+
+```{r}
+t.test(Satisfaction.Score~Exited, data = data)
+```
+
+We conducted a two-sample t-test to determine whether there was a significant difference in the average satisfaction score between bank customers who had exited and those who had stayed. The results of the t-test indicated a non significant difference between customers who stayed (M = 3.01) and customers who left (M = 3.0) in average satisfaction scores; t (3176) = 0.61, p > 0.05. These findings from this study suggests that there is no association between the customer satisfaction level and customer churn rate. 
+
+**Gender of the customer and churn behavior**
+
+```{r}
+chisq.test(data$Gender, data$Exited)
+```
+ 
+
+A chi-square test was used to check whether there was a significant association between gender and customer churn. Gender and churn variables were categorized into two groups. The contingency table analysis showed a significant association between the gender and customer churn, X**2 (1, N=9992) = 112.72, p < 0.05. The association indicates that the customer's likelihood to leave or stay with the bank was dependent on their gender.
+
+## Modelling
+```{r}
+model<-glm(Exited~., data = data, family = binomial(link="logit"))
+summary(model)
+```
+
+
+Based on the results from the model above, age, whether a customer is an active bank member and whether they had complained were the only factors that had a significant impact on the customer attrition. The credit score, place of residence, gender, tenure, card type and salary did not have a significant impact on a customer staying or leaving when controlling for other factors. The customers who had complained were more likely to leave and also in active members were more likely to leave the bank. 
+
+
+# Conclusion 
+
+
+The aim of this study is to explore the relationship between bank customer churn and other factors and also to explore the predictive modeling of bank customer churn. The results from the two sample independent t-tests showed that there was no meaningful association between the customer satisfaction rate and them exiting or staying.
+
+However, the results from the Chi-square test showed that gender had a significant impact on customer retention by the bank. Female customers were more likely to stay with the bank than male customers. These results changed when we accounted for the other attributes of the customer other than just their gender.
+
+Furthermore, the results from the logit model revealed that after accounting for demographic factors, behavioral factors, and transactional factors of the customer, only age, complaints, and active membership accounted for some variation in the likelihood of a customer staying or leaving. Customers who had complained about the bank's services were more likely to leave. Similarly, customers who were less active were also at a higher risk of discontinuing their association with the bank.
+
+
+## Reference
+
+Huang, B., Kechadi, M. T., & Buckley, B. (2012). Customer churn prediction in telecommunications. Expert Systems with Applications, 39(1), 1414-1425.
+
+Lalwani, P., Mishra, M. K., Chadha, J. S., & Sethi, P. (2022). Customer churn prediction system: a machine learning approach. Computing, 104(2), 271-294.
+
+Vafeiadis, T., Diamantaras, K. I., Sarigiannidis, G., & Chatzisavvas, K. C. (2015). A comparison of machine learning techniques for customer churn prediction. Simulation Modelling Practice and Theory, 55, 1-9.
+
+Saran Kumar, A., & Chandrakala, D. (2016). A survey on customer churn prediction using machine learning techniques. International Journal of Computer Applications, 975, 8887.
+
+Verbeke, W., Martens, D., & Baesens, B. (2014). Social network analysis for customer churn prediction. Applied Soft Computing, 14, 431-446.
+

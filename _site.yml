@@ -1,0 +1,19 @@
+name: "My-Website"  
+navbar:
+  title: "Website"  
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "CV"
+      icon: fa-file-pdf-o
+      href: cv.html
+    - text: "Blog"
+      icon: fa-rss
+  right:
+    - text: "Contact me"
+      icon: fa-envelope-o
+    - text: "GitHub"
+      icon: fa-github
+      
